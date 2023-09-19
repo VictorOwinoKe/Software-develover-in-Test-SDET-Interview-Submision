@@ -10,8 +10,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 
 # Constants for login credentials
-USERNAME = "user@gmail.com"
-PASSWORD = "1234567"
+USERNAME = "admin"
+PASSWORD = "admin"
 
 # Initialize the WebDriver for chrome 
 @pytest.fixture
