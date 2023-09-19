@@ -23,13 +23,13 @@ def browser():
 # Test case for logging in and verifying about_us page
 def test_login_and_verify_about_us(browser):
     try:
-        # Open the web page website.com
-        browser.get("https://www.website.com/webmail/sign-in/?source=SC")  
+        # Open the web page 
+        browser.get("https://play1.automationcamp.ir/login.html")  
 
         # Log in with valid credentials
-        username_field = browser.find_element(By.ID, "emailPasswordField")  
+        username_field = browser.find_element(By.ID, "user")  
         password_field = browser.find_element(By.ID, "password")  
-        login_button = browser.find_element(By.ID, "webmailSignin-submit2") 
+        login_button = browser.find_element(By.ID, "login") 
 
         username_field.send_keys(USERNAME)
         password_field.send_keys(PASSWORD)
