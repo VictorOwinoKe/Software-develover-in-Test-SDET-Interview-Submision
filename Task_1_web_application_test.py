@@ -21,7 +21,7 @@ def browser():
     driver.quit()
 
 # Test case for logging in and verifying about_us page
-def test_login_and_verify_about_us(browser):
+def test_login_and_verify_button(browser):
     try:
         # Open the web page 
         browser.get("https://play1.automationcamp.ir/login.html")  
@@ -35,17 +35,14 @@ def test_login_and_verify_about_us(browser):
         password_field.send_keys(PASSWORD)
         login_button.click()
 
-        # Navigate to the Contact_us page 
-        about_us_link = browser.find_element(By.XPATH, "//a[contains(text(), 'Contact_Us')]")  
-        about_us_link.click()
+        # Find the "Add to Cart" button and verify its presence
+        add_to_cart_button = browser.find_element(By.ID, "submit_button")  
 
-        # Verify the presence of contact details (email address and phone number)
-        email_element = browser.find_element(By.XPATH, "//div[contains(text(), 'Email:')]")
-        phone_element = browser.find_element(By.XPATH, "//div[contains(text(), 'Phone:')]")
+        # Assert that the button is displayed
+        assert add_to_cart_button.is_displayed(), "Add to Cart button is not displayed on the page."
 
-        assert email_element.is_displayed()
-        assert phone_element.is_displayed()
 
+        
     except Exception as e:
         # Handle exceptions
         pytest.fail(f"Test failed with exception: {str(e)}")
